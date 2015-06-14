@@ -1,6 +1,9 @@
 # -*- encoding: utf8 -*-
 from __future__ import division, print_function, division, absolute_import
 
+import argparse
+import os
+
 import pylifx
 
 
@@ -14,10 +17,7 @@ def power(bulb, state):
 
 
 if __name__ == '__main__':
-    import argparse
-
     parser = argparse.ArgumentParser()
-    parser.add_argument('bulb_addr')
 
     subparsers = parser.add_subparsers(dest='command')
 
@@ -37,7 +37,15 @@ if __name__ == '__main__':
     temp_parser = subparsers.add_parser('temperature')
     temp_parser.add_argument('kelvin', type=int)
 
+    parser.add_argument('--bulb', '-b', dest='bulb_addr')
+
     args = parser.parse_args()
+
+    if args.bulb_addr is None:
+        if 'LIFXBULB' in os.environ:
+            args.bulb_addr = os.environ['LIFXBULB']
+        else:
+            raise ValueError('Bulb must be specified with --bulb argument or LIFXBULB environment variable')
 
     with pylifx.LifxController(args.bulb_addr) as bulb:
         if args.command == 'power':
