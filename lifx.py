@@ -38,6 +38,7 @@ if __name__ == '__main__':
     temp_parser.add_argument('kelvin', type=int)
 
     parser.add_argument('--bulb', '-b', dest='bulb_addr')
+    parser.add_argument('--fade-time', '-f', type=int, default=1)
 
     args = parser.parse_args()
 
@@ -51,8 +52,8 @@ if __name__ == '__main__':
         if args.command == 'power':
             power(bulb, args.state)
         elif args.command == 'rgb':
-            bulb.set_rgb(args.red, args.green, args.blue)
+            bulb.set_rgb(args.red, args.green, args.blue, args.fade_time)
         elif args.command == 'hsb':
-            bulb.set_hsb(args.hue, args.saturation, args.brightness)
+            bulb.set_hsb(args.hue, args.saturation, args.brightness, args.fade_time)
         elif args.command == 'temperature':
-            bulb.set_temperature(args.kelvin)
+            bulb.set_temperature(args.kelvin, args.fade_time)
