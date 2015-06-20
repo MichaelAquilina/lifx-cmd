@@ -7,7 +7,6 @@ LifX command line utility to change the state of your lifx bulb. Essentially a w
 Supports powering on/off, changing RGB/HSB color and temperature.
 
 * Free software: BSD license
-* Documentation: https://lifx-cmd.readthedocs.org.
 
 Installation
 ------------
@@ -16,15 +15,15 @@ The easiest way to install this utility is using pip:
 
 .. code-block:: bash
 
-    pip install lifx-cmd
+    $ pip install lifx-cmd
 
 Alternatively you can install by downloading this github repo and installing it manually:
 
 .. code-block:: bash
 
-    git clone https://github.com/MichaelAquilina/lifx-cmd
-    cd lifx-cmd
-    python setup.py install
+    $ git clone https://github.com/MichaelAquilina/lifx-cmd
+    $ cd lifx-cmd
+    $ python setup.py install
 
 Setup
 -----
@@ -34,20 +33,20 @@ communicating with. The easiest way to do this is to add a `.lifx` file to your 
 
 .. code-block:: bash
 
-    echo "03-1F-7B-7B-64-F6" > "~/.lifx"
+    $ echo "03-1F-7B-7B-64-F6" > "~/.lifx"
 
 The command utility will automatically search for this file on execution. Alternatively you can specify the MAC address from
 the environment variable LIFXBULB:
 
 .. code-block:: bash
 
-    export LIFXBULB="03-1F-7B-7B-64-F6"
+    $ export LIFXBULB="03-1F-7B-7B-64-F6"
 
 Finally, you can simply specify the mac address as a command line parameter:
 
 .. code-block:: bash
 
-    lifx --bulb "03-1F-7B-7B-64-F6" power on
+    $ lifx --bulb "03-1F-7B-7B-64-F6" power on
 
 Features
 --------
