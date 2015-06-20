@@ -15,7 +15,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
 requirements = [
-    pylifx==0.0.3
+    'pylifx==0.0.3',
 ]
 
 setup(
