@@ -48,8 +48,7 @@ if __name__ == '__main__':
         if os.path.exists(config_path):
             with open(config_path, 'r') as fp:
                 args.bulb_addr = fp.read().strip()
-
-        if 'LIFXBULB' in os.environ:
+        elif 'LIFXBULB' in os.environ:
             args.bulb_addr = os.environ['LIFXBULB']
         else:
             raise ValueError('Bulb must be specified with --bulb argument or LIFXBULB environment variable')
