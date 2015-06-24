@@ -64,7 +64,7 @@ def main():
                     try:
                         bulb = find_master_bulbs(broadcast_address)
                         print("  IP Address:  ", bulb['ip'])
-                        print("  MAC Address: ", to_mac_address(bulb['site_addr']))
+                        print("  MAC Address: ", to_mac_address(bulb['site_addr']).upper())
                         break
                     except socket.timeout:
                         print("Didnt receive a reply. Trying again... (retry=%d)" % retry_count)
