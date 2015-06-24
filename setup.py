@@ -22,14 +22,14 @@ requirements = [
 
 setup(
     name='lifx-cmd',
-    version='0.2.0',
+    version='0.2.1',
     description="LifX command line utility to change the state of your lifx bulb. Supports powering on/off, changing RGB/HSB color and temperature.",
     long_description=readme + '\n\n' + history,
     author="Michael Aquilina",
     author_email='michaelaquilina@gmail.com',
     url='https://github.com/MichaelAquilina/lifx-cmd',
     packages=[],
-    scripts=['bin/lifx'],
+    scripts=['bin/lifx', 'bin/lifx-discover'],
     include_package_data=True,
     install_requires=requirements,
     license="BSD",
