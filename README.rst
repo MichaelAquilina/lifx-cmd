@@ -28,8 +28,19 @@ Alternatively you can install by downloading this github repo and installing it 
 Setup
 -----
 
-Assuming you've already connected your lifx bulb to your home network, you will now need to specify the bulb you are
-communicating with. The easiest way to do this is to add a `.lifx` file to your home directory with the bulb's MAC address:
+Assuming you've already connected your lifx bulb to your home network, you need to specify the master bulb you are
+communicating with.
+
+The easiest way to do this is by first running the `lifx-discover` utility command that comes with this package:
+
+.. code-block:: bash
+
+    $ lifx-discover
+    'wlan0' interface (broadcast address 192.168.0.255)
+      IP Address:   192.168.0.38
+      MAC Address:  03-1F-7B-7B-64-F6
+
+Enter the discovered MAC address to a `.lifx` file in your home directory:
 
 .. code-block:: bash
 
