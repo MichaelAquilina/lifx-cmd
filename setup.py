@@ -16,11 +16,13 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'pylifx==0.0.3',
+    'bitstring>=3.1.3',
+    'netifaces>=0.10.4',
 ]
 
 setup(
     name='lifx-cmd',
-    version='0.1.2',
+    version='0.2.0',
     description="LifX command line utility to change the state of your lifx bulb. Supports powering on/off, changing RGB/HSB color and temperature.",
     long_description=readme + '\n\n' + history,
     author="Michael Aquilina",
