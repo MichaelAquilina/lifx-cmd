@@ -40,6 +40,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--bulb', '-b', dest='bulb_addr', help='Specify a specific bulb you want to alter')
     parser.add_argument('--fade-time', '-f', type=int, default=1, help='Specify a transition time')
+    parser.add_argument('--interface', '-i', dest='interface', help='Specify the network interface to use')
 
     args = parser.parse_args()
 
@@ -53,7 +54,7 @@ if __name__ == '__main__':
         else:
             raise ValueError('Bulb must be specified with --bulb argument or LIFXBULB environment variable')
 
-    with pylifx.LifxController(args.bulb_addr) as bulb:
+    with pylifx.LifxController(args.bulb_addr, intf_name=args.interface) as bulb:
         if args.command == 'power':
             power(bulb, args.state)
         elif args.command == 'rgb':
