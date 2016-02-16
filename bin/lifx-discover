@@ -48,7 +48,7 @@ def find_master_bulbs(broadcast_address):
 
 
 def to_mac_address(addr):
-    return ':'.join(addr[i:i+2] for i in xrange(0, 11, 2))
+    return ':'.join(addr[i:i + 2] for i in xrange(0, 11, 2))
 
 
 def main():
@@ -58,11 +58,12 @@ def main():
             if 'broadcast' in interface_addr[socket.AF_INET][0]:
                 broadcast_address = interface_addr[socket.AF_INET][0]['broadcast']
 
-                print("'{}' interface (broadcast address {})".format(interface, broadcast_address))
+                print("Looking for bulbs on '{}' interface (broadcast address {})".format(interface, broadcast_address))
 
                 for retry_count in xrange(3):
                     try:
                         bulb = find_master_bulbs(broadcast_address)
+                        print("Found a bulb with the following details:")
                         print("  IP Address:  ", bulb['ip'])
                         print("  MAC Address: ", to_mac_address(bulb['site_addr']).upper())
                         break
@@ -70,7 +71,8 @@ def main():
                         print("Didnt receive a reply. Trying again... (retry=%d)" % retry_count)
                 else:
                     print("Gave up waiting for a reply")
-                    return
+                    continue
+        print('')
 
 
 if __name__ == '__main__':

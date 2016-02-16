@@ -3,10 +3,11 @@
 History
 -------
 
-0.2.2 (2016-02-16)
+0.2.3 (2016-02-16)
 --------------------
 * Add lifx-discover command to discover bulbs
 * Add better help and description fields
+* Other minor improvements
 
 0.2.0 (2015-06-21)
 --------------------
