@@ -22,24 +22,24 @@ if __name__ == '__main__':
 
     subparsers = parser.add_subparsers(dest='command')
 
-    power_parser = subparsers.add_parser('power')
+    power_parser = subparsers.add_parser('power', help='Set the bulb power to on or off')
     power_parser.add_argument('state', choices=('on', 'off'))
 
-    rgb_parser = subparsers.add_parser('rgb')
+    rgb_parser = subparsers.add_parser('rgb', help='Set the Red/Green/Blue tint')
     rgb_parser.add_argument('red', type=float)
     rgb_parser.add_argument('green', type=float)
     rgb_parser.add_argument('blue', type=float)
 
-    hsb_parser = subparsers.add_parser('hsb')
-    hsb_parser.add_argument('hue', type=float)
-    hsb_parser.add_argument('saturation', type=float)
-    hsb_parser.add_argument('brightness', type=float)
+    hsb_parser = subparsers.add_parser('hsb', help='Set the Hue/Saturation/Brightness')
+    hsb_parser.add_argument('hue', type=float, help='Hue value between 0 and 1')
+    hsb_parser.add_argument('saturation', type=float, help='Saturation value between 0 and 1')
+    hsb_parser.add_argument('brightness', type=float, help='Brightness value between 0 and 1')
 
-    temp_parser = subparsers.add_parser('temperature')
-    temp_parser.add_argument('kelvin', type=int)
+    temp_parser = subparsers.add_parser('temperature', help='Set overall color warmth of the bulb')
+    temp_parser.add_argument('kelvin', type=int, help='Temperature value between 0 and 65535')
 
-    parser.add_argument('--bulb', '-b', dest='bulb_addr')
-    parser.add_argument('--fade-time', '-f', type=int, default=1)
+    parser.add_argument('--bulb', '-b', dest='bulb_addr', help='Specify a specific bulb you want to alter')
+    parser.add_argument('--fade-time', '-f', type=int, default=1, help='Specify a transition time')
 
     args = parser.parse_args()
 
