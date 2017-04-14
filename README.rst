@@ -44,7 +44,7 @@ Enter the discovered MAC address to a `.lifx` file in your home directory:
 
 .. code-block:: bash
 
-    $ echo "03-1F-7B-7B-64-F6" > "~/.lifx"
+    $ echo "03-1F-7B-7B-64-F6" > ~/.lifx
 
 The command utility will automatically search for this file on execution. Alternatively you can specify the MAC address from
 the environment variable LIFXBULB:
