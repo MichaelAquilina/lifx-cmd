@@ -47,7 +47,7 @@ Enter the discovered MAC address to a `.lifx` file in your home directory:
     $ echo "03-1F-7B-7B-64-F6" > ~/.lifx
 
 The command utility will automatically search for this file on execution. Alternatively you can specify the MAC address from
-the environment variable LIFXBULB:
+the environment variable `LIFXBULB`:
 
 .. code-block:: bash
 
@@ -93,7 +93,7 @@ The temperature of the bulb can also be set to yellow tinge or pure white LED:
     $ lifx temperature 65535   # bright white
     $ lifx temperature 0       # classic yellow
 
-By default the bulb is set to fade in changes sent over a period of 1 second. You can change this with the -f flag:
+By default the bulb is set to fade in changes sent over a period of 1 second. You can change this with the `-f` flag:
 
 .. code-block:: bash
 
